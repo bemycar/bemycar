@@ -1,0 +1,107 @@
+#booking-form
+ form input[type="text"] {
+    background-color: #dedfe1;
+    font-family: 'Alegreya',serif;
+    font-style: italic;
+    color: #727272;
+    font-size: 17px;
+    min-height: 45px;
+    margin-top:18px;
+}
+
+.form-control {
+    display: block;
+    width: 100%;
+    height: 34px;
+    padding: 6px 12px;
+    font-size: 14px;
+    line-height: 1.42857143;
+    color: #555;
+    background-color: #fff;
+    background-image: none;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    box-shadow: inset 0 1px 1px rgba(0,0,0,.075);
+    -webkit-transition: border-color ease-in-out .15s,-webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+    transition: border-color ease-in-out .15s,box-shadow ease-in-out .15s;
+}
+
+.form_row {
+    margin-top:20px;
+}
+
+a.bookingButton {
+    border: #be7f3c solid 3px;
+    color: #be7f3c !important;
+    padding: 10px;
+    width: 230px;
+    border-radius: 0;
+    font-family: 'Alegreya',serif;
+    font-size: 17px;
+    transition: all .5s 0 ease;
+    letter-spacing: 0;
+    margin-top: 50px !important;
+    font-weight: 700;
+}
+
+a.bookingButton:hover {
+    color: #fff !important;
+    background: #9D6B38 !important;
+    text-decoration: none;
+    border: #9D6B38 solid 3px;
+}
+
+a.customer_booking_btn {
+    color: #FFF !important;
+    padding: 8px 30px 0 !important;
+    height: 40px;
+    font-family: 'Alegreya',serif;
+    font-weight: 700;
+    font-size: 15px;
+    border-radius: 4px;
+    border: #907848 solid 2px;
+    transition: all .5s 0 ease;
+    margin-right: 30px;
+    background-color: #907848;
+    font-weight: 700 !important;
+    float: right;
+}
+
+a.customer_booking_btn:hover {
+    color: #FFF !important;
+    text-decoration:none;
+}
+
+.logout_button_padding {
+    padding-right: 10%;
+    padding-top: 20px;
+}
+
+.footer_booking_btn_margin {
+    margin-top:-5px;
+}
+
+.section_header {
+  font-weight: 700;
+  font-size:19px;
+  text-decoration:underline;
+  font-size:20px;
+}
+
+.please_note_header {
+   font-weight:700;
+   font-style:italic;
+   color:#7f6227; 
+   text-decoration:none;
+   font-size:19px;
+   padding-top:15px;
+}
+
+p {
+padding:5px;
+line-height:1.3;
+}
+
+

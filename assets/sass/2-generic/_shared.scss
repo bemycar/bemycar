@@ -1,0 +1,39 @@
+/*==============================
+=            SHARED            =
+==============================*/
+
+h1, h2, h3, h4, h5, h6,
+ul, ol, dl,
+blockquote, p, address,
+hr,
+table,
+fieldset, figure,
+pre {
+  margin-bottom: $base-spacing-unit;
+}
+
+ul, ol,
+dd {
+  margin-left: $base-spacing-unit;
+}
+
+html {
+  font-family: 'Raleway', sans-serif;
+  font-size: 16px;
+
+  @include breakpoint($break-desktop) {
+    font-size: 18px;
+  };
+}
+
+p {
+  font-size: 1em;
+}
+
+img {
+  max-width: 100%;
+}
+
+a {
+  text-decoration: none;
+}

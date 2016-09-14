@@ -1,0 +1,30 @@
+input, textarea {
+  border: none;
+  background: $color-light-grey;
+  border-radius: $border-radius;
+  padding: 1em 1.5em;
+  border: 2px solid transparent;
+  transition: all .1s ease-out;
+  display: block;
+  margin-bottom: $base-spacing-unit;
+
+  @include hocus() {
+    outline: none;
+    border-color: $color-blue;
+  };
+}
+
+.large-form {
+  input {
+    display: inline-block;
+  }
+
+  label {
+    margin-bottom: $base-spacing-unit;
+    display: block;
+    color: $color-purple;
+  }
+  .c-btn {
+    float: left;
+  }
+}
