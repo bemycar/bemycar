@@ -18,7 +18,10 @@ $('#signup_button').on("click", function() {
 
   } else {
 
-    var data = "email=" + signup_email + "&password=" + signup_password + "&number=" + number + "&signup_name=" + signup_name;
+    var data = "email=" + signup_email + 
+    "&password=" + signup_password + 
+    "&number=" + number + 
+    "&signup_name=" + signup_name;
 
     console.log(data);
 
@@ -30,7 +33,6 @@ $('#signup_button').on("click", function() {
         var response = JSON.parse(data);
         if (response.result == "added") {
           console.log(data);
-
           location.reload();
         } else {
           alert("email exists");
@@ -45,7 +47,6 @@ $('#signup_button').on("click", function() {
 $('#login').on("click", function() {
 
   var email = $('#email').val();
-
   var password = $('#password').val();
 
   if (email === "" && password === "") {
@@ -87,7 +88,6 @@ $(function() {
           success: function(data) {
 
             var response = JSON.parse(data);
-
             console.log(data);
 
             if (response.result == "found") {
@@ -96,9 +96,6 @@ $(function() {
             } else {
               alert("carword not found");
             }
-
-
-
           }
         });
 

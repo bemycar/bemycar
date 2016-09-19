@@ -18,11 +18,10 @@ if(!empty($_POST['email']) && !empty($_POST['password']) ){
 		$name = $_POST['signup_name'];
 	}
 
-$result = mysqli_query($con, "SELECT * FROM `users` WHERE `email` = '$email' ");
+	$result = mysqli_query($con, "SELECT * FROM `users` WHERE `email` = '$email' ");
 
 
-if (mysqli_num_rows($result) > 0) {
-
+	if (mysqli_num_rows($result) > 0) {
 
 		$json_response['result'] = "exists";
 	}else{
@@ -41,7 +40,7 @@ if (mysqli_num_rows($result) > 0) {
 		}
 	}
 }else{
-		$json_response['result'] = "please enter parameters";
+	$json_response['result'] = "please enter parameters";
 
 }
 

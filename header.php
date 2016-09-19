@@ -10,6 +10,7 @@ if(!empty($_SESSION['email'])){
 
 	if(basename($_SERVER['PHP_SELF'])=='index.php' || basename($_SERVER['PHP_SELF'])=='search.php'){
 		//its ok
+		//what am i doing here ?
 	}else{
 		header('Location: index.php');
 	}

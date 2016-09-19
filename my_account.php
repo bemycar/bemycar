@@ -39,9 +39,9 @@ if(mysqli_num_rows($result)> 0) {
 
 		    success : function(data){
 
-		        console.log(data);
+		        var response = JSON.parse(data);
 
-		        if(data == "success"){
+		        if(response.result == "success"){
 		        	location.reload();
 		        }else{
 		        	alert("error");
