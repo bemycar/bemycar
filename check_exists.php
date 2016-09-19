@@ -33,14 +33,14 @@ $result = mysqli_query($con, "SELECT * FROM `vehicles` JOIN `users`
 		$number =  $row['phone_number'];
 		$name = $row['name'];
 		$postcode = $row['postcode'];
-		$json_response = "found";
+		$json_response['result'] = "found";
 	}else{
-		$json_response = " not found";
+		$json_response['result'] = "not found";
 
 	}
 
 } else {
-	$json_response = "please enter carword ";
+	$json_response['result'] = "please enter carword";
 }
 
 echo json_encode($json_response);

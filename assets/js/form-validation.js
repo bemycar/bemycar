@@ -81,7 +81,6 @@ $(function() {
       event.preventDefault();
       // This cancels the event...
       var carword = $('#carword').val();
-      console.log(carword);
         $.ajax({
           url: 'check_exists.php?carword=' + carword,
 
@@ -89,7 +88,7 @@ $(function() {
 
             var response = JSON.parse(data);
 
-            console.log('data',data);
+            console.log(data);
 
             if (response.result == "found") {
               location.href = 'search.php?carword=' + carword;
