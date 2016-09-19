@@ -27,8 +27,8 @@ $('#signup_button').on("click", function() {
       data: data,
       type: 'POST',
       success: function(data) {
-
-        if (data == "added") {
+        var response = JSON.parse(data);
+        if (response.result == "added") {
           console.log(data);
 
           location.reload();
@@ -61,8 +61,8 @@ $('#login').on("click", function() {
       data: data,
       type: 'POST',
       success: function(data) {
-
-        if (data == "success") {
+        var response = JSON.parse(data);
+        if (response.result == "success") {
           console.log(data);
 
           location.reload();
@@ -87,9 +87,11 @@ $(function() {
 
           success: function(data) {
 
+            var response = JSON.parse(data);
+
             console.log('data',data);
 
-            if (data == "found") {
+            if (response.result == "found") {
               location.href = 'search.php?carword=' + carword;
 
             } else {

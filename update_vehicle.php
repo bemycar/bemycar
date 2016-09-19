@@ -5,13 +5,16 @@ $con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
 $json_response = array();
 
+
+
 if(!empty($_SESSION['email'])){
 
 	$email = $_SESSION['email'];
 
 }else{
-	$json_response['result'] = "please log in";
-	exit();
+
+	$json_response['result'] = 'no log in';
+
 }
 
 $make = "";
@@ -29,44 +32,49 @@ $image_2 = "";
 $image_3 = "";
 $image_4 = "";
 
+$carword = "";
 
-$result = mysqli_query($con, "SELECT * FROM `users`  WHERE `email` = '$email' ");
 
-$row = mysqli_fetch_array($result);
-
-$user_id = $row['id'];
-
+$sql = "UPDATE `vehicles` SET ";
 
 
 if(!empty($_POST['make'])){
 	$make = $_POST['make'];
+	$sql .= "`make` = '".$make."' ";
 }
 if(!empty($_POST['model'])){
 	$model = $_POST['model'];
+	$sql .= "`model` = '".$model."' ";
 }
 if(!empty($_POST['year'])){
 	$year = $_POST['year'];
+	$sql .= "`year` = '".$year."' ";
 }
 if(!empty($_POST['mileage'])){
 	$mileage = $_POST['mileage'];
+	$sql .= "`mileage` = '".$mileage."' ";
 }
 if(!empty($_POST['description'])){
 	$description = $_POST['description'];
+	$sql .= "`description` = '".$description."' ";
 }
 if(!empty($_POST['price'])){
 	$price = $_POST['price'];
+	$sql .= "`price` = '".$price."' ";
 }
 if(!empty($_POST['mot'])){
 	$mot = $_POST['mot'];
+	$sql .= "`mot` = '".$mot."' ";
 }
 if(!empty($_POST['tax'])){
 	$tax = $_POST['tax'];
+	$sql .= "`tax` = '".$tax."' ";
 }
 
 if(!empty($_POST['postcode'])){
 	$postcode = $_POST['postcode'];
 	$postcode = str_replace(" ", "+", $postcode);
-	
+	$sql .= "`postcode` = '".$postcode."' ";
 }
 
 $allowed = array('png', 'jpg', 'gif','PNG', 'JPG', 'GIF', 'jpeg', 'JPEG');
@@ -79,12 +87,14 @@ if(isset($_FILES['image_1']) && $_FILES['image_1']['error'] == 0){
 	$image_1 = time().".".$extension;
 
 	if(!in_array(strtolower($extension), $allowed)){
-		$json_response['error'][] = 'image_1 error';
+		echo 'image_1 error';
 		
 	}
 
 	if(move_uploaded_file($_FILES['image_1']['tmp_name'], 'images/'.$user_id.'/'.$image_1)){
-		
+		//echo 'image_1 uploaded';
+		$sql .= "`image_1` = '".$image_1."' ";
+
 	}
 }
 
@@ -95,12 +105,15 @@ if(isset($_FILES['image_2']) && $_FILES['image_2']['error'] == 0){
 	$image_2 = time().".".$extension;
 
 	if(!in_array(strtolower($extension), $allowed)){
-		$json_response['error'][] = 'image_2 error';
-
+		echo 'image_2 error';
+		
 	}
 
 	if(move_uploaded_file($_FILES['image_2']['tmp_name'], 'images/'.$user_id.'/'.$image_2)){
-		
+		//echo 'image_2 uploaded';
+				$sql .= "`image_2` = '".$image_2."' ";
+
+
 	}
 }
 
@@ -111,50 +124,60 @@ if(isset($_FILES['image_3']) && $_FILES['image_3']['error'] == 0){
 	$image_3 = time().".".$extension;
 
 	if(!in_array(strtolower($extension), $allowed)){
-		$json_response['error'][] = 'image_3 error';
+		echo 'image_3 error';
+		
 	}
 
 	if(move_uploaded_file($_FILES['image_3']['tmp_name'], 'images/'.$user_id.'/'.$image_3)){
-		
+		//echo 'image_3 uploaded';
+				$sql .= "`image_3` = '".$image_3."' ";
+
+
 	}
 }
 
 if(isset($_FILES['image_4']) && $_FILES['image_4']['error'] == 0){
+
 
 	$extension = pathinfo($_FILES['image_4']['name'], PATHINFO_EXTENSION);
 
 	$image_4 = time().".".$extension;
 
 	if(!in_array(strtolower($extension), $allowed)){
-		$json_response['error'][] = 'image_4 error';
-
+		echo 'image_3 error';
+		
 	}
 
 	if(move_uploaded_file($_FILES['image_4']['tmp_name'], 'images/'.$user_id.'/'.$image_4)){
+		//echo 'image_4 uploaded';
+				$sql .= "`image_4` = '".$image_4."' ";
+
 
 	}
 }
+if(!empty($_POST['carword'])){
+	$carword = $_POST['carword'];
+	$sql .= "WHERE `carword` = '".$carword."' ";
 
-$carwords = mysqli_query($con, "SELECT * FROM `car_words` ORDER BY RAND() LIMIT 1");
-
-$row = mysqli_fetch_array($carwords);
-
-$carword = $row['word'];
-
- $insert = mysqli_query($con, "INSERT INTO `vehicles` (`user_id`, `carword`, `make`, `model`, `year`, `mileage`, `description`, `image_1`,
- 	`image_2`, `image_3`, `image_4`, `price`, `MOT`, `tax`, `postcode`) VALUES ('$user_id', '$carword', '$make', '$model', '$year', '$mileage',
- 	'$description', '$image_1', '$image_2', '$image_3', '$image_4', '$price', '$mot', '$tax', '$postcode') ");
+ $insert = mysqli_query($con, $sql);
 
 
 if($insert){
- 	$json_response['result'] = 'success';
+ 		$json_response['result'] = 'updated';
+
  	//mysqli_query($con, "DELETE FROM `carwords` WHERE `words` = '$carword'");
  }else{
- 	$json_response['result'] = mysqli_error($con);
+ 	echo mysqli_error($con);
  }
 
 
+}else {
+	$json_response['result'] = 'please send carword';
+}
+
+
 echo json_encode($json_response);
+
 
 
 

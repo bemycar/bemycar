@@ -1,4 +1,5 @@
 <?php
+$json_response = array();
 
 if(!empty($_GET['carword'])){
 
@@ -6,14 +7,12 @@ $carword = $_GET['carword'];
 
 $con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
-
 $result = mysqli_query($con, "SELECT * FROM `vehicles` JOIN `users`
 	 ON `vehicles`.`user_id` = `users`.`id`
 	 WHERE `carword` = '$carword' ");
 
 
 	if(mysqli_num_rows($result)> 0) {
-
 
 		$row = mysqli_fetch_array($result);
 
@@ -34,18 +33,17 @@ $result = mysqli_query($con, "SELECT * FROM `vehicles` JOIN `users`
 		$number =  $row['phone_number'];
 		$name = $row['name'];
 		$postcode = $row['postcode'];
-		echo "found";
+		$json_response = "found";
 	}else{
-			echo $carword;
-			echo " not found";
+		$json_response = " not found";
 
-}
+	}
 
 } else {
-	echo " please enter carword ";
+	$json_response = "please enter carword ";
 }
 
-
+echo json_encode($json_response);
 
 
 ?>
