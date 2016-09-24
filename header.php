@@ -21,6 +21,10 @@ if(!empty($_SESSION['email'])){
 	<link rel='stylesheet' href='assets/css/main.css'>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<meta property="og:title" content="Be My Car" />
+	<meta property="og:description" content="The Easy Way To Advertise Your Car" />
+	<meta property="og:url" content="http://www.bemycar.co.uk" />
+	<meta property="og:image" content="http://bemycar.co.uk/img/logo.png" />
 </head>
 
 <body>

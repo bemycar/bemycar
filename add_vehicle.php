@@ -59,10 +59,11 @@ $('#add').on("click", function() {
       processData: false,
       contentType: false,
        success : function(data){
+            console.log(data);
 
         var response = JSON.parse(data);
 
-        if(response.result =="inserted"){
+        if(response.result == "success"){
             console.log(response);
 
             window.location.href = 'my_account.php';

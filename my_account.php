@@ -20,6 +20,7 @@ if(mysqli_num_rows($result)> 0) {
 			echo "<a href ='print_carword.php?carword=".$row['carword']."'><button type ='button'>Print Carword </button> </a>";
 
 			echo $row['make']." ".$row['model'];
+
 			echo "<img src ='cross.png' onclick='deleteVehicle(".$row['vehicle_id'].");' id = 'delete'></img>";
 			echo "</li>";
 		}
@@ -30,7 +31,6 @@ if(mysqli_num_rows($result)> 0) {
 	<script>
 	function deleteVehicle(rowId){
 
-	console.log(rowId);
 
 		$.ajax({
 		    url: 'delete_vehicle.php',
@@ -40,7 +40,7 @@ if(mysqli_num_rows($result)> 0) {
 		    success : function(data){
 
 		        var response = JSON.parse(data);
-
+		        console.log(response);
 		        if(response.result == "success"){
 		        	location.reload();
 		        }else{

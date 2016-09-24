@@ -72,7 +72,6 @@ $allowed = array('png', 'jpg', 'gif','PNG', 'JPG', 'GIF', 'jpeg', 'JPEG');
 
 if(isset($_FILES['image_1']) && $_FILES['image_1']['error'] == 0){
 
-
 	$extension = pathinfo($_FILES['image_1']['name'], PATHINFO_EXTENSION);
 	$image_1 = time().".".$extension;
 
@@ -86,7 +85,6 @@ if(isset($_FILES['image_1']) && $_FILES['image_1']['error'] == 0){
 }
 
 if(isset($_FILES['image_2']) && $_FILES['image_2']['error'] == 0){
-
 
 	$extension = pathinfo($_FILES['image_2']['name'], PATHINFO_EXTENSION);
 	$image_2 = time().".".$extension;
@@ -130,11 +128,13 @@ if(isset($_FILES['image_4']) && $_FILES['image_4']['error'] == 0){
 	}
 }
 
-$carwords = mysqli_query($con, "SELECT * FROM `car_words` ORDER BY RAND() LIMIT 1");
+$carwords = mysqli_query($con, "SELECT * FROM `carwords` ORDER BY RAND() LIMIT 1");
 
 $row = mysqli_fetch_array($carwords);
 
-$carword = $row['word'];
+$carword = $row['words'];
+
+
 
 $insert = mysqli_query($con, "INSERT INTO `vehicles` (`user_id`, `carword`, `make`, `model`, `year`, `mileage`, `description`, `image_1`,
  	`image_2`, `image_3`, `image_4`, `price`, `MOT`, `tax`, `postcode`) VALUES ('$user_id', '$carword', '$make', '$model', '$year', '$mileage',
