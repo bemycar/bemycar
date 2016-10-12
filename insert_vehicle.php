@@ -1,18 +1,32 @@
 <?php
 
+
+if (isset($_SERVER['HTTP_ORIGIN'])) {
+    $address = 'http://' . $_SERVER['SERVER_NAME'];
+    if (strpos($_SERVER['HTTP_ORIGIN'], $address) !== 0) {
+
+        exit(json_encode([
+            'error' => 'Invalid Origin header: ' . $_SERVER['HTTP_ORIGIN']
+        ]));
+    }
+} else {
+    exit(json_encode(['error' => 'No Origin header']));
+}
+
+
 session_start();
 $con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
 $json_response = array();
 
 if(!empty($_SESSION['email'])){
-
 	$email = $_SESSION['email'];
-
 }else{
 	$json_response['result'] = "please log in";
 	exit();
 }
+
+
 
 $make = "";
 $model = "";

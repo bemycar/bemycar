@@ -16,11 +16,16 @@ if(mysqli_num_rows($result) > 0) {
 
 
 $carword = strtoupper($carword);
+ $html='<style>@page {
+     margin-top: 2.5cm;
+    }</style>
 
 
-$html = "<div style = 'text-align:center; padding-top:5mm;' > 
- <img style = 'margin-left:200px;' src='img/bemycartext.png'></img>  <BR>
-<h1 style ='padding-top:2mm; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
+    ';
+
+$html .= "<div style = 'text-align:center; margin-top:;' > 
+ <img style = ' margin-top:120px; margin-left:200px;' src='img/bemycartext.png'></img> 
+<h1 style ='margin-top:230px; line-height: 10px; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
 
 
 
