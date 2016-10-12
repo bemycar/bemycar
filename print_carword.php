@@ -13,12 +13,14 @@ $result = mysqli_query($con, "SELECT * FROM `vehicles`  WHERE `carword` = '$carw
 
 if(mysqli_num_rows($result) > 0) {
 
+
+
 $carword = strtoupper($carword);
 
 
 $html = "<div style = 'text-align:center; padding-top:5mm;' > 
- <h2 style = 'color:#46c496; font-size:100vw; font-family:FuturaStd-ExtraBold;'> BEMYCAR.CO.UK </h2> <BR>
-<h1 style ='padding-top:10mm; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
+ <img style = 'margin-left:200px;' src='img/bemycartext.png'></img>  <BR>
+<h1 style ='padding-top:2mm; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
 
 
 
