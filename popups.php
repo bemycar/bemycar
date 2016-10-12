@@ -17,7 +17,7 @@
 			<input type='text'  id='signup_name' name='signup_name' placeholder='Name'>
 			<input type='text'  id='signup_password' name='password' placeholder='Password'>
 			<input type='text'  id='signup_password2' name='password2' placeholder='Confirm Password'>
-			<!-- <input type='text'  id='number' name='number' placeholder='Phone Number'> -->
+			<input type='text'  id='number' name='number' placeholder='Phone Number'>
 
 			<button class="c-btn" id='signup_button' type='button' id='login'>Sign Up</button>
 

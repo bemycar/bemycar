@@ -8,7 +8,7 @@ if(!empty($_POST['email']) && !empty($_POST['password']) ){
 
 	$email = $_POST['email'];
 	$password = $_POST['password'];
-	$number = "";
+	$number = 0;
 	$name = "";
 
 	if(!empty($_POST['number'])){
