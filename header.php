@@ -18,7 +18,7 @@ if(!empty($_SESSION['email'])){
 
 <head>
 	<link rel='stylesheet' href='assets/css/main.css'>
-	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400" rel="stylesheet">
+	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
 </head>
 
@@ -67,3 +67,4 @@ if(!empty($_SESSION['email'])){
 		</div>
 	</div>
 </header>
+<div class="page-wrap">

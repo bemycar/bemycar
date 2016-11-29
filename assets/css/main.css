@@ -622,10 +622,16 @@ dd {
 
 html {
   font-family: 'Raleway', sans-serif;
-  font-size: 16px; }
+  font-size: 16px;
+  height: 100%;
+  overflow: auto; }
   @media (min-width: 50em) {
     html {
       font-size: 18px; } }
+
+body {
+  overflow: auto;
+  min-height: 100%; }
 
 p {
   font-size: 1em; }
@@ -635,6 +641,14 @@ img {
 
 a {
   text-decoration: none; }
+
+.page-wrap {
+  min-height: 100%;
+  /* equal to footer height */ }
+
+.page-wrap:after {
+  content: "";
+  display: block; }
 
 /**
  * ELEMENTS
@@ -728,10 +742,14 @@ input, textarea {
   margin: 0 auto;
   padding: 0 20px; }
 
+.o-layout-container--slim {
+  max-width: 750px;
+  margin: 0 auto;
+  padding: 0 20px; }
+
 .o-page-wrapper {
   width: 100%;
-  padding-top: 150px;
-  height: 100%; }
+  padding-top: 150px; }
 
 .o-overlay {
   width: 100%;
@@ -766,6 +784,16 @@ body.pop-up-active .o-overlay {
   left: 0;
   width: 100%;
   height: 100%; }
+
+.o-span6 {
+  width: 100%;
+  margin-bottom: 20px; }
+  @media (min-width: 40.063em) {
+    .o-span6 {
+      width: 48.33333%;
+      float: left;
+      margin-left: 0.83333%;
+      margin-right: 0.83333%; } }
 
 /**
  * COMPONENTS
@@ -852,7 +880,7 @@ body {
   border: none;
   color: white;
   text-transform: uppercase;
-  display: block;
+  display: inline-block;
   margin: 0 auto;
   cursor: pointer; }
   .c-btn--small {
@@ -864,6 +892,8 @@ body {
     -webkit-transform: translateX(-50%);
             transform: translateX(-50%);
     left: 50%; }
+  .c-btn--purple {
+    background: #92278f; }
   .c-btn a {
     color: #fff; }
 
@@ -952,6 +982,90 @@ body {
   font-size: .8em;
   left: 0;
   cursor: pointer; }
+
+.c-image-gallery {
+  border: 4px solid #71d6fc;
+  background: #000000;
+  height: auto; }
+  .c-image-gallery img {
+    width: 100%; }
+
+.c-image-gallery__single {
+  position: relative;
+  overflow: hidden; }
+
+.c-image-gallery-nav {
+  height: 100px;
+  border-bottom: 4px solid #71d6fc;
+  border-right: 4px solid #71d6fc;
+  border-left: 4px solid #71d6fc; }
+  .c-image-gallery-nav .slick-slide {
+    height: 100%; }
+
+.c-image-gallery-nav__single {
+  position: relative;
+  overflow: hidden;
+  cursor: pointer;
+  background: #000000; }
+  .c-image-gallery-nav__single:last-of-type {
+    border-right: none; }
+  .c-image-gallery-nav__single img {
+    width: 100%;
+    max-width: none;
+    position: absolute;
+    top: -9999px;
+    bottom: -9999px;
+    left: -9999px;
+    right: -9999px;
+    margin: auto; }
+
+.c-car-info {
+  overflow: hidden;
+  font-size: 1.1em;
+  margin-bottom: 20px; }
+
+.c-car-info__details {
+  float: left; }
+  .c-car-info__details > p {
+    margin-bottom: 0;
+    display: inline-block; }
+
+.c-car-info__price {
+  float: right; }
+  .c-car-info__price p {
+    margin-bottom: 0;
+    color: #71d6fc;
+    font-weight: bold; }
+
+.c-car-info__more {
+  overflow: hidden;
+  margin-top: 20px;
+  margin-bottom: 20px;
+  font-size: .9em; }
+  .c-car-info__more p {
+    color: #9a9898;
+    margin-bottom: 0; }
+  .c-car-info__more .c-car-info__details {
+    font-size: .8em;
+    padding: 10px 0; }
+
+.c-car-info__contact {
+  float: right; }
+
+.c-car-info__description {
+  margin-top: 60px;
+  margin-bottom: 40px; }
+
+.c-footer {
+  padding: 20px 0;
+  background: #71d6fc;
+  margin-top: 20px;
+  font-size: .8em;
+  color: #fff; }
+
+.c-map {
+  width: 100%;
+  height: 400px; }
 
 /**
  * TRUMPS

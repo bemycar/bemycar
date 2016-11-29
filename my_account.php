@@ -11,10 +11,10 @@ include 'header.php'; ?>
 
 
 if(mysqli_num_rows($result)> 0) {
-		echo "<ul>";
+		echo "<ul='c-car'>";
 
 		while($row = mysqli_fetch_array($result)){
-			echo "<li>";
+			echo "<li class='c-car__single'>";
 			echo "<img height = '100px'src ='images/".$row['user_id']."/".$row['image_1']."' </img>";
 
 			echo "<a href ='print_carword.php?carword=".$row['carword']."'><button type ='button'>Print Carword </button> </a>";

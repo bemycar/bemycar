@@ -1,7 +1,5 @@
 <?php
 
-
-
 if(!empty($_GET['carword'])){
 
 
@@ -46,60 +44,88 @@ include 'header.php';
 
 
 ?>
+<link rel='stylesheet' href='assets/css/slick.css'>
 
 
-<html>
 
 <script type="text/javascript" src="https://maps.googleapis.com/maps/api/js?key=AIzaSyDKr4ft2bq82Nt5H4Cx2KJUXKkc1rpPbcw"></script>
 
 
-<body>
+<div class="o-page-wrapper">
+	<div class="o-layout-container--slim">
 
-	<div style = "text-align:center;">
-
-<b> Call <?= $name; ?> on  <?= $number; ?> to see this vehicle ! </b>
-
-<?php
-		echo $make . " <BR>". $model." <BR>". $price. "  <BR>" . $description;
-
-
-
-		if(!empty($image_1)){
-			//echo "<img height =  ' 200px' src ='images/".$user_id ."/".$image_1."' </img>";
-			echo	'<a  id="single_image" href="images/'.$user_id .'/'.$image_1.'"><img class = "featured_image" src="images/'.$user_id .'/'.$image_1.'" alt=""/></a>';
-
-			echo	'<a  id="single_image" href="images/'.$user_id .'/'.$image_1.'"><img class = "images" src="images/'.$user_id .'/'.$image_1.'" alt=""/></a>';
-
-		}
-		if(!empty($image_2)){
-			//echo "<img height =  ' 200px' src ='images/".$user_id ."/".$image_2."' </img>";
-			echo	'<a  id="single_image" href="images/'.$user_id .'/'.$image_2.'"><img  class = "images" src="images/'.$user_id .'/'.$image_2.'" alt=""/></a>';
-
-		}
-		if(!empty($image_3)){
-			//echo "<img height =  ' 200px' src ='images/".$user_id ."/".$image_3."' </img>";
-					echo	'<a id="single_image" href="images/'.$user_id .'/'.$image_3.'"><img  class = "images" src="images/'.$user_id .'/'.$image_3.'" alt=""/></a>';
-
-		}
-		if(!empty($image_4)){
-			//echo "<img height =  ' 200px' src ='images/".$user_id ."/".$image_4."' </img>";
-			echo	'<a  id="single_image" href="images/'.$user_id .'/'.$image_4.'"><img  class = "images" src="images/'.$user_id .'/'.$image_4.'" alt=""/></a>';
-
-		}
+		<div class="c-car-info">
+			<!-- <p class="c-car-info__contact">Call <?php echo $name; ?> on <?php echo $number; ?> to see this vehicle!</p> -->
+      <div class="c-car-info__details">
+  			<p class="c-car-info__year"><?php echo $year; ?> - </p>
+  			<p class="c-car-info__make"><?php echo $make; ?></p>
+  			<p class="c-car-info__model"><?php echo $model; ?></p>
+  			<p class="c-car-info__small-desc"><?php echo $description; ?></p>
+      </div>
+      <div class="c-car-info__price">
+        <p>£ <?php echo $price; ?></p>
+      </div>
+    </div>
 
 
+    <div class="c-image-gallery__wrapper">
 
-?>
+  		<div class="c-image-gallery">
+  			<?php if(!empty($image_1)){
+  				echo '<div class="c-image-gallery__single"><img class="images" src="images/'.$user_id .'/'.$image_1.'" alt=""/></div>';
+  			}
+  			if(!empty($image_2)){
+  				echo '<div class="c-image-gallery__single"><img class= "images" src="images/'.$user_id .'/'.$image_2.'" alt=""/></div>';
+  			}
+  			if(!empty($image_3)){
+  				echo '<div class="c-image-gallery__single"><img class="images" src="images/'.$user_id .'/'.$image_3.'" alt=""/></div>';
+  			}
+  			if(!empty($image_4)){
+  				echo '<div class="c-image-gallery__single"><img class="images" src="images/'.$user_id .'/'.$image_4.'" alt=""/></div>';
+  			}?>
 
-	<textarea> Send a message to the owner..</textarea>
-	<a href ='mail_user.php?user_id=<?= $user_id; ?>&message=hello&from=emailaddress'><button type ='button'>Email User </button> </a>
+  		</div>
 
-      <div style =" height:400px;
-          width:400px;
-          display:block;" id="map"></div>
+  		<div class="c-image-gallery-nav">
+  			<?php if(!empty($image_1)){
+  				echo '<div class="c-image-gallery-nav__single"><img class="images" src="images/'.$user_id .'/'.$image_1.'" alt=""/></div>';
+  			}
+  			if(!empty($image_2)){
+  				echo '<div class="c-image-gallery-nav__single"><img class= "images" src="images/'.$user_id .'/'.$image_2.'" alt=""/></div>';
+  			}
+  			if(!empty($image_3)){
+  				echo '<div class="c-image-gallery-nav__single"><img class="images" src="images/'.$user_id .'/'.$image_3.'" alt=""/></div>';
+  			}
+  			if(!empty($image_4)){
+  				echo '<div class="c-image-gallery-nav__single"><img class="images" src="images/'.$user_id .'/'.$image_4.'" alt=""/></div>';
+  			}?>
+  		</div>
+  	</div>
 
+    <div class="c-car-info__more">
+      <div class="o-span6">
+        <p class="c-car-info__mot">MOT: <?php echo $mot; ?></p>
+        <p class="c-car-info__tax">TAX: <?php echo $tax; ?></p>
+        <p class="c-car-info__miles">MILES: <?php echo $mileage; ?></p>
+      </div>
+      <div class="c-car-info__contact o-span6">
+      	<button class="c-btn c-btn--small c-btn--purple"><?php echo $mot; ?></button>
+      	<!-- <a href ='mail_user.php?user_id=<?= $user_id; ?>&message=hello&from=emailaddress'> -->
+					<button class="c-btn c-btn--small js-page-email js-popup" type='button'>Email User </button>
+				<!-- </a> -->
+      </div>
+    </div>
 
-          </div>
+    <!-- Description, will be replaced with db user description -->
+    <div class="c-car-info__description">
+      <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt.</p>
+      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Pellentesque in ipsum id orci porta dapibus.<p>
+    </div>
+
+    <!-- Map -->
+    <div id="map" class="c-map"></div>
+  </div>
+</div>
 
 <script type="text/javascript">
 
@@ -164,34 +190,7 @@ window.onload = function() {
 
 }
 
-
 </script>
+<script src='assets/js/slick.min.js'></script>
 
-<script>
-//
-// $(document).ready(function() {
-//
-// 	/* This is basic - uses default settings */
-//
-// 	$("a#single_image").fancybox();
-//
-// 	/* Using custom settings */
-//
-// 	$("a#inline").fancybox({
-// 		'hideOnContentClick': true
-// 	});
-//
-// 	/* Apply fancybox to multiple items */
-//
-// 	$("a.group").fancybox({
-// 		'transitionIn'	:	'elastic',
-// 		'transitionOut'	:	'elastic',
-// 		'speedIn'		:	600,
-// 		'speedOut'		:	200,
-// 		'overlayShow'	:	false
-// 	});
-//
-// });
-
-
-</script>
+<?php include 'footer.php'; ?>

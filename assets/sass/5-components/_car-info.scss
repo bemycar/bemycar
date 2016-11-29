@@ -1,0 +1,62 @@
+.c-car-info {
+  overflow: hidden;
+  font-size: 1.1em;
+  margin-bottom: $base-spacing-unit;
+}
+
+.c-car-info__details {
+  float: left;
+
+  & > p {
+    margin-bottom: 0;
+    display: inline-block;
+  }
+
+  .c-car-info__year {
+
+  }
+
+  .c-car-info__make {
+
+  }
+}
+
+.c-car-info__price {
+  float: right;
+
+  p {
+    margin-bottom: 0;
+    color: $color-blue;
+    font-weight: bold;
+  }
+}
+
+.c-car-info__more {
+  overflow: hidden;
+  margin-top: $base-spacing-unit;
+  margin-bottom: $base-spacing-unit;
+  font-size: .9em;
+
+  p {
+    color: $color-grey;
+    margin-bottom: 0;
+  }
+
+  .c-btn {
+
+  }
+
+  .c-car-info__details {
+    font-size: .8em;
+    padding: $base-spacing-unit / 2 0;
+  }
+}
+
+.c-car-info__contact {
+  float: right;
+}
+
+.c-car-info__description {
+  margin-top: $base-spacing-unit * 3;
+  margin-bottom: $base-spacing-unit * 2;
+}

@@ -16,7 +16,8 @@ include 'header.php';
     <p class="c-home__link js-popup js-page-video">Click here to find out more about how BeMyCar works...</p>
   </div>
 </div>
-<script src='assets/js/scripts.js'></script>
-<script src='assets/js/form-validation.js'></script>
+
 
 </body>
+
+<?php include 'footer.php'; ?>

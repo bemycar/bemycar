@@ -1,0 +1,8 @@
+.o-span6 {
+  width: 100%;
+  margin-bottom: $base-spacing-unit;
+  
+  @include breakpoint($break-tablet) {
+    @include span(6 of 12);
+  };
+}
