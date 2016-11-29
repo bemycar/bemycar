@@ -65,7 +65,7 @@ include 'header.php';
   			<p class="c-car-info__small-desc"><?php echo $description; ?></p>
       </div>
       <div class="c-car-info__price">
-        <p>£ <?php echo $price; ?></p>
+        <p>  <?php echo"£".$price; ?></p>
       </div>
     </div>
 

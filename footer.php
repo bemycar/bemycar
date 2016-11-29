@@ -7,7 +7,7 @@
   <div class="o-layout-container">
 
     <div class="c-footer__content">
-      &copy;<?php echo date("Y"); ?> weBuyAnyCar.co.uk
+      &copy;<?php echo date("Y"); ?> bemycar.co.uk
     </div>
     
   </div>
