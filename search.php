@@ -33,6 +33,8 @@ $result = mysqli_query($con, "SELECT * FROM `vehicles` JOIN `users` ON `vehicles
 		$number =  $row['phone_number'];
 		$name = $row['name'];
 		$postcode = $row['postcode'];
+
+		$update = mysqli_query($con, "UPDATE `vehicles` SET `page_views` = `page_views` + 1 WHERE `carword` = '$carword'");
 	}
 
 }else{

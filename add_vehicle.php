@@ -4,38 +4,7 @@ include 'header.php';?>
 
 <div class="o-page-wrapper large-form">
 
-<div class="o-layout-container"><?php
-
-
-$result = mysqli_query($con, "SELECT * FROM `users`  WHERE `email` = '$email' ");
-
-$row = mysqli_fetch_array($result);
-
-if(!empty($_POST['make'])){
-	$make = $_POST['make'];
-}
-
-
-$allowed = array('png', 'jpg', 'gif');
-
-
-if(isset($_FILES['upl']) && $_FILES['upl']['error'] == 0){
-
-	$extension = pathinfo($_FILES['upl']['name'], PATHINFO_EXTENSION);
-
-	if(!in_array(strtolower($extension), $allowed)){
-		echo '{"status":"error"}';
-
-	}
-
-	if(move_uploaded_file($_FILES['upl']['tmp_name'], 'images/'.$_FILES['upl']['name'])){
-		echo '{"status":"success"}';
-
-
-
-	}
-}
-?>
+<div class="o-layout-container">
 
 <form id="upload"  method="POST" enctype="multipart/form-data">
 	<label>Add new car</label>
@@ -70,10 +39,10 @@ $('#add').on("click", function() {
 	$('#loading').show();
 
 
-  var form = $('#upload')[0];
-  console.log(form);
-var formData = new FormData(form);
- console.log(formData);
+   var form = $('#upload')[0];
+   console.log(form);
+   var formData = new FormData(form);
+   console.log(formData);
 
    formData.append('image_1', $('#image_1')[0].files[0]);
    formData.append('image_2', $('#image_2')[0].files[0]);
@@ -90,9 +59,12 @@ var formData = new FormData(form);
       processData: false,
       contentType: false,
        success : function(data){
-
-        if(data =="inserted"){
             console.log(data);
+
+        var response = JSON.parse(data);
+
+        if(response.result == "success"){
+            console.log(response);
 
             window.location.href = 'my_account.php';
         }

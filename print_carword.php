@@ -2,12 +2,30 @@
 
 include("mpdf60/". "mpdf.php");
 
+$carword = $_GET['carword'];
 
-$carword = strtoupper($_GET['carword']);
+
+$con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
 
-$html = "<div style = 'text-align:center; padding-top:5mm;' > <img style = 'text-align:center;' src ='logo.png' width='155mm'  /> <BR>
-<h1 style ='padding-top:1mm; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
+$result = mysqli_query($con, "SELECT * FROM `vehicles`  WHERE `carword` = '$carword' ");
+
+
+if(mysqli_num_rows($result) > 0) {
+
+
+
+$carword = strtoupper($carword);
+ $html='<style>@page {
+     margin-top: 2.5cm;
+    }</style>
+
+
+    ';
+
+$html .= "<div style = 'text-align:center; margin-top:;' > 
+ <img style = ' margin-top:120px; margin-left:200px;' src='img/bemycartext.png'></img> 
+<h1 style ='margin-top:230px; line-height: 10px; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
 
 
 
@@ -17,8 +35,11 @@ $mpdf->WriteHTML($html);
 $mpdf->debug = true;
 $mpdf->Output();
 
-
 exit;
+
+} else {
+	header('Location: index.php');
+}
 
 
 ?>

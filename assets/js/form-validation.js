@@ -18,7 +18,10 @@ $('#signup_button').on("click", function() {
 
   } else {
 
-    var data = "email=" + signup_email + "&password=" + signup_password + "&number=" + number + "&signup_name=" + signup_name;
+    var data = "email=" + signup_email + 
+    "&password=" + signup_password + 
+    "&number=" + number + 
+    "&signup_name=" + signup_name;
 
     console.log(data);
 
@@ -27,10 +30,9 @@ $('#signup_button').on("click", function() {
       data: data,
       type: 'POST',
       success: function(data) {
-
-        if (data == "added") {
+        var response = JSON.parse(data);
+        if (response.result == "added") {
           console.log(data);
-
           location.reload();
         } else {
           alert("email exists");
@@ -45,7 +47,6 @@ $('#signup_button').on("click", function() {
 $('#login').on("click", function() {
 
   var email = $('#email').val();
-
   var password = $('#password').val();
 
   if (email === "" && password === "") {
@@ -61,8 +62,8 @@ $('#login').on("click", function() {
       data: data,
       type: 'POST',
       success: function(data) {
-
-        if (data == "success") {
+        var response = JSON.parse(data);
+        if (response.result == "success") {
           console.log(data);
 
           location.reload();
@@ -81,23 +82,20 @@ $(function() {
       event.preventDefault();
       // This cancels the event...
       var carword = $('#carword').val();
-      console.log(carword);
         $.ajax({
           url: 'check_exists.php?carword=' + carword,
 
           success: function(data) {
 
-            console.log('data',data);
+            var response = JSON.parse(data);
+            console.log(data);
 
-            if (data == "found") {
+            if (response.result == "found") {
               location.href = 'search.php?carword=' + carword;
 
             } else {
               alert("carword not found");
             }
-
-
-
           }
         });
 
