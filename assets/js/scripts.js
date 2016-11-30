@@ -1,6 +1,8 @@
 var mycar = mycar || {};
 
 mycar = {
+  counter : 0,
+
   init: function() {
 
   },
@@ -11,12 +13,25 @@ mycar = {
     $('.c-image-gallery__single img').each(function(i){
       var width   = $(this).width();
       var height  = $(this).height();
+      var loaded = true;
 
+      // If not loaded fully then wait 100ms and try again. 
       if(height === 0) {
-        setTimeout(function(){
-          mycar.setImageFormat();
-          return;
-        },100);
+        loaded = false;
+        mycar.counter ++;
+
+        if(mycar.counter < 10) {
+
+          setTimeout(function(){
+            console.log('counter', mycar.counter);
+            console.log('timeout firing, height = ', height);
+            mycar.setImageFormat();
+          },100);
+        }
+      }
+
+      if(loaded === false ) {
+        return false;
       }
       // Landscape
       if(width >= height){
@@ -126,7 +141,7 @@ $(document).ready(function(){
     mycar.setImageFormat();
     console.log('has initialized');
   }else {
-    console.log('else firing');
+    console.log('else firing as slider has not initialized');
     setTimeout(function(){
       mycar.setImageFormat();
     },100);
