@@ -57,7 +57,7 @@ include 'header.php';
 	<div class="o-layout-container--slim">
 
 		<div class="c-car-info">
-			<!-- <p class="c-car-info__contact">Call <?php echo $name; ?> on <?php echo $number; ?> to see this vehicle!</p> -->
+		<!-- <p class="c-car-info__contact">Call <?php echo $name; ?> on <?php echo $number; ?> to see this vehicle!</p> -->
       <div class="c-car-info__details">
   			<p class="c-car-info__year"><?php echo $make; ?> - </p>
   			<p class="c-car-info__make"><?php echo $model; ?></p>
@@ -111,7 +111,7 @@ include 'header.php';
         <p class="c-car-info__miles">MILES: <?php echo $mileage; ?></p>
       </div>
       <div class="c-car-info__contact o-span6">
-      	<button class="c-btn c-btn--small c-btn--purple"><?php echo $number; ?></button>
+      	<a href="tel: '<?php echo $number; ?>'"  >	<button class="c-btn c-btn--small c-btn--purple"><?php echo $number; ?></button>
       	<!-- <a href ='mail_user.php?user_id=<?= $user_id; ?>&message=hello&from=emailaddress'> -->
 					<button class="c-btn c-btn--small js-page-email js-popup" type='button'>Email User </button>
 				<!-- </a> -->
