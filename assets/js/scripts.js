@@ -3,6 +3,31 @@ var mycar = mycar || {};
 mycar = {
   init: function() {
 
+  },
+
+  setImageFormat: function() {
+    var maxLandscapeHeight = 0;
+
+    $('.c-image-gallery__single img').each(function(i){
+      var width   = $(this).width();
+      var height  = $(this).height();
+
+      // Landscape
+      if(width >= height){
+        $(this).css('width', '100%');
+
+        // get tallest landspace to then apply to portrait image
+        maxLandscapeHeight = maxLandscapeHeight > height ? maxLandscapeHeight : height;
+        console.log('max',maxLandscapeHeight);
+
+      }else { // Portrait
+        $(this).addClass('gallery-portrait');
+        $(this).css('height', '100%');
+      }
+      // console.log(i + ' ' + height);
+      // console.log(i + ' ' + width);
+    });
+    $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
   }
 };
 
@@ -48,6 +73,7 @@ mycar.menuPopUp = {
 };
 
 
+
 // Various triggers
 
 $('.js-popup').on('click', function() {
@@ -86,4 +112,10 @@ $('.c-image-gallery-nav').slick({
               }
             }
           ]
+});
+
+$(document).ready(function(){
+  if( $('.c-image-gallery').hasClass('slick-initialized') ) {
+    mycar.setImageFormat();
+  }
 });
