@@ -111,11 +111,8 @@ include 'header.php';
         <p class="c-car-info__miles">MILES: <?php echo $mileage; ?></p>
       </div>
       <div class="c-car-info__contact o-span6">
-      	<a href="tel: '<?php echo $number; ?>'"  >	
-      	<button class="c-btn c-btn--small c-btn--purple">
-					<img class="phone-icon" src="img/call.png" />
-					
-				</button>
+      	<a href="tel: '<?php echo $number; ?>'"  >	<button class="c-btn c-btn--small c-btn--purple"><?php echo $number; ?></button></a>
+
       	<!-- <a href ='mail_user.php?user_id=<?= $user_id; ?>&message=hello&from=emailaddress'> -->
 					<button class="c-btn c-btn--small js-page-email js-popup" type='button'>Email User </button>
 				<!-- </a> -->
