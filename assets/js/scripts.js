@@ -12,6 +12,12 @@ mycar = {
       var width   = $(this).width();
       var height  = $(this).height();
 
+      if(height === 0) {
+        setTimeout(function(){
+          mycar.setImageFormat();
+          return;
+        },100);
+      }
       // Landscape
       if(width >= height){
         $(this).css('width', '100%');
@@ -118,5 +124,11 @@ $('.c-image-gallery-nav').slick({
 $(document).ready(function(){
   if( $('.c-image-gallery').hasClass('slick-initialized') ) {
     mycar.setImageFormat();
+    console.log('has initialized');
+  }else {
+    console.log('else firing');
+    setTimeout(function(){
+      mycar.setImageFormat();
+    },100);
   }
 });

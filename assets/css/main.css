@@ -996,6 +996,12 @@ body {
     margin: auto;
     max-height: 400px; }
 
+.c-image-gallery, .c-image-gallery-nav {
+  visibility: hidden; }
+
+.c-image-gallery.slick-initialized, .c-image-gallery-nav.slick-initialized {
+  visibility: visible; }
+
 .c-image-gallery__single {
   max-height: 100%;
   position: relative;
@@ -1064,6 +1070,9 @@ body {
 
 .c-car-info__contact {
   float: right; }
+  .c-car-info__contact .phone-icon {
+    padding-right: 5px;
+    max-height: 15px; }
 
 .c-car-info__description {
   margin-top: 60px;
