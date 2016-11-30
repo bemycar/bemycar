@@ -16,16 +16,17 @@ mycar = {
       if(width >= height){
         $(this).css('width', '100%');
 
+        var newHeight = $(this).height();
         // get tallest landspace to then apply to portrait image
-        maxLandscapeHeight = maxLandscapeHeight > height ? maxLandscapeHeight : height;
+        maxLandscapeHeight = maxLandscapeHeight > newHeight ? maxLandscapeHeight : newHeight;
         console.log('max',maxLandscapeHeight);
 
       }else { // Portrait
         $(this).addClass('gallery-portrait');
         $(this).css('height', '100%');
       }
-      // console.log(i + ' ' + height);
-      // console.log(i + ' ' + width);
+      console.log(i + ' ' + height);
+      console.log(i + ' ' + width);
     });
     $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
   }
