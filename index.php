@@ -5,7 +5,6 @@ include 'header.php';
 ?>
 <div class="c-home">
   <div class="o-layout-container">
-  	<img style = "margin-top:10%;margin-left:5%;" height = "30%" width = "30%"  src = "img/arrow.png"></img>
     <div class="o-search-field">
 
       <form class="c-home__search" id = "search_form" action ="search.php" method="POST">
