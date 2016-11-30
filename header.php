@@ -25,6 +25,8 @@ if(!empty($_SESSION['email'])){
 	<meta property="og:description" content="The Easy Way To Advertise Your Car" />
 	<meta property="og:url" content="http://www.bemycar.co.uk" />
 	<meta property="og:image" content="http://bemycar.co.uk/img/logo.png" />
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+
 </head>
 
 <body>

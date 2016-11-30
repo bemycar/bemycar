@@ -59,13 +59,13 @@ include 'header.php';
 		<div class="c-car-info">
 			<!-- <p class="c-car-info__contact">Call <?php echo $name; ?> on <?php echo $number; ?> to see this vehicle!</p> -->
       <div class="c-car-info__details">
-  			<p class="c-car-info__year"><?php echo $year; ?> - </p>
-  			<p class="c-car-info__make"><?php echo $make; ?></p>
-  			<p class="c-car-info__model"><?php echo $model; ?></p>
-  			<p class="c-car-info__small-desc"><?php echo $description; ?></p>
+  			<p class="c-car-info__year"><?php echo $make; ?> - </p>
+  			<p class="c-car-info__make"><?php echo $model; ?></p>
+  			<p class="c-car-info__model"><?php  ?></p>
+  			<p class="c-car-info__small-desc"><?php  ?></p>
       </div>
       <div class="c-car-info__price">
-        <p>£ <?php echo $price; ?></p>
+        <p>  <?php echo "&pound;".$price; ?></p>
       </div>
     </div>
 
@@ -111,7 +111,7 @@ include 'header.php';
         <p class="c-car-info__miles">MILES: <?php echo $mileage; ?></p>
       </div>
       <div class="c-car-info__contact o-span6">
-      	<button class="c-btn c-btn--small c-btn--purple"><?php echo $mot; ?></button>
+      	<button class="c-btn c-btn--small c-btn--purple"><?php echo $number; ?></button>
       	<!-- <a href ='mail_user.php?user_id=<?= $user_id; ?>&message=hello&from=emailaddress'> -->
 					<button class="c-btn c-btn--small js-page-email js-popup" type='button'>Email User </button>
 				<!-- </a> -->
@@ -120,8 +120,7 @@ include 'header.php';
 
     <!-- Description, will be replaced with db user description -->
     <div class="c-car-info__description">
-      <p>Curabitur non nulla sit amet nisl tempus convallis quis ac lectus. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Quisque velit nisi, pretium ut lacinia in, elementum id enim. Praesent sapien massa, convallis a pellentesque nec, egestas non nisi. Mauris blandit aliquet elit, eget tincidunt nibh pulvinar a. Curabitur aliquet quam id dui posuere blandit. Cras ultricies ligula sed magna dictum porta. Pellentesque in ipsum id orci porta dapibus. Donec sollicitudin molestie malesuada. Nulla porttitor accumsan tincidunt.</p>
-      <p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Donec rutrum congue leo eget malesuada. Nulla porttitor accumsan tincidunt. Vivamus suscipit tortor eget felis porttitor volutpat. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Donec velit neque, auctor sit amet aliquam vel, ullamcorper sit amet ligula. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Vivamus magna justo, lacinia eget consectetur sed, convallis at tellus. Sed porttitor lectus nibh. Donec rutrum congue leo eget malesuada. Pellentesque in ipsum id orci porta dapibus.<p>
+    		<p> <?php echo $description; ?> </p>
     </div>
 
     <!-- Map -->
