@@ -54,6 +54,11 @@
 
 .c-car-info__contact {
   float: right;
+
+  .phone-icon {
+    padding-right: $base-spacing-unit / 4;
+    max-height: 15px;
+  }
 }
 
 .c-car-info__description {

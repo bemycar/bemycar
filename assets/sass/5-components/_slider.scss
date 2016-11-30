@@ -21,6 +21,9 @@
   }
 }
 
+.c-image-gallery, .c-image-gallery-nav { visibility: hidden; }
+.c-image-gallery.slick-initialized , .c-image-gallery-nav.slick-initialized  { visibility: visible; }
+
 .c-image-gallery__single {
   max-height: 100%;
   position: relative;
