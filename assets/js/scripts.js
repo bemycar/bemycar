@@ -15,7 +15,7 @@ mycar = {
       var height  = $(this).height();
       var loaded = true;
 
-      // If not loaded fully then wait 100ms and try again. 
+      // If not loaded fully then wait 100ms and try again.
       if(height === 0) {
         loaded = false;
         mycar.counter ++;
@@ -109,32 +109,35 @@ $('.js-popup-close').on('click', function() {
 
 var sliderCount = $('.c-image-gallery-for > div').length;
 
-// Slick init
-$('.c-image-gallery').slick({
- slidesToShow: 1,
- slidesToScroll: 1,
- arrows: false,
- fade: true,
- asNavFor: '.c-image-gallery-nav'
-});
+$(document).ready(function(){
+  // Slick init
+  $('.c-image-gallery').slick({
+   slidesToShow: 1,
+   slidesToScroll: 1,
+   arrows: false,
+   fade: true,
+   asNavFor: '.c-image-gallery-nav'
+  });
 
 
-$('.c-image-gallery-nav').slick({
- slidesToShow: 4,
- slidesToScroll: 1,
- asNavFor: '.c-image-gallery',
- dots: false,
- focusOnSelect: true,
- arrows: false,
- responsive: [
-            {
-              breakpoint: 600,
-              settings: {
-                slidesToShow: 2,
+  $('.c-image-gallery-nav').slick({
+   slidesToShow: 4,
+   slidesToScroll: 1,
+   asNavFor: '.c-image-gallery',
+   dots: false,
+   focusOnSelect: true,
+   arrows: false,
+   responsive: [
+              {
+                breakpoint: 600,
+                settings: {
+                  slidesToShow: 2,
+                }
               }
-            }
-          ]
+            ]
+  });
 });
+
 
 $(document).ready(function(){
   if( $('.c-image-gallery').hasClass('slick-initialized') ) {
