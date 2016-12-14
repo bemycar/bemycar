@@ -49,7 +49,9 @@ mycar = {
       console.log(i + ' ' + height);
       console.log(i + ' ' + width);
     });
-    $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
+    if(maxLandscapeHeight > 0) {
+      $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
+    }
   }
 };
 
