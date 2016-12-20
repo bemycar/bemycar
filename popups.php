@@ -25,7 +25,7 @@
 
 	</div>
 
-	<div class='c-popup js-contact-popup'>
+	<!-- <div class='c-popup js-contact-popup'>
 
 		<h4 class="c-popup__header">Email Seller</h4>
 		<div class="c-popup__close js-popup-close"></div>
@@ -36,17 +36,18 @@
 			<button class="c-btn" type='button' id='sendmail'>SEND</button>
 
 		</form>
-	</div>
+	</div> -->
 
 	<div class='c-popup js-email-popup'>
 
 		<h4 class="c-popup__header">Email Seller</h4>
 		<div class="c-popup__close js-popup-close"></div>
-		<form action='sendmail.php' method='POST' id='sendmailform'>
+		<form action='mail_user.php' method='POST' id='sendmailform'>
+			<input type='hidden' id='recipient_email' value = '<?php echo $email; ?>'>
 
-			<input type='text' id='email' name='email' placeholder='email'>
-			<textarea id='message' name='message' placeholder='message'></textarea>
-			<button class="c-btn" type='button' id='sendmail'>SEND</button>
+			<input type='text' id='from_email' name='from_email' placeholder='email'>
+			<textarea id='from_message' name='from_message' placeholder='message'></textarea>
+			<buttom class="c-btn" type='button' id='sendmail'>SEND</button>
 
 		</form>
 	</div>

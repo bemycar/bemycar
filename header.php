@@ -1,10 +1,10 @@
 <?php
 session_start();
-$con=mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
+$con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
-if(!empty($_SESSION['email'])){
+if (!empty($_SESSION['email'])) { 
 
-	$email=$_SESSION['email'];
+	$email = $_SESSION['email'];
 
 }else{
 
@@ -14,13 +14,18 @@ if(!empty($_SESSION['email'])){
 	}else{
 		header('Location: index.php');
 	}
-}?>
+}
+
+?>
 
 
 <head>
 	<link rel='stylesheet' href='assets/css/main.css'>
 	<link href="https://fonts.googleapis.com/css?family=Raleway:300,400,700" rel="stylesheet">
+
 	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+	<script src='assets/js/slick.min.js'></script>
+
 	<meta property="og:title" content="Be My Car" />
 	<meta property="og:description" content="The Easy Way To Advertise Your Car" />
 	<meta property="og:url" content="http://www.bemycar.co.uk" />
@@ -44,8 +49,8 @@ if(!empty($_SESSION['email'])){
 
 	<!-- If logged in -->
 	<?php if(!empty($email)){?>
-				<li class="js-header-logout c-header__logout" id='logout'><a class="c-btn c-btn--small" href='logout.php'>LOG OUT</a></li>
-				<li class="js-header-my-account" id='account'><a class="c-btn c-btn--small" href='my_account.php'>MY ACCOUNT</a></li>
+			<!--	<li class="js-header-logout c-header__logout" id='logout'><a class="c-btn c-btn--small" href='logout.php'>LOG OUT</a></li> -->
+				<!--<li class="js-header-my-account" id='account'><a class="c-btn c-btn--small" href='my_account.php'>MY ACCOUNT</a></li> -->
 				<!-- <li id='contactdrop'><a href='#'>CONTACT US</a></li> -->
 
 			</ul>
@@ -55,8 +60,8 @@ if(!empty($_SESSION['email'])){
 		</nav> -->
 
 	<?php }else{ ?>
-				<li id='signindrop' class="js-header-signin js-popup c-btn c-btn--small" role="button">SIGN IN</li>
-				<li id='signupdrop' class="js-header-signup js-popup c-header__signup c-btn c-btn--small" role="button">SIGN UP</li>
+				<!--<li id='signindrop' class="js-header-signin js-popup c-btn c-btn--small" role="button">SIGN IN</li> -->
+			<!--	<li id='signupdrop' class="js-header-signup js-popup c-header__signup c-btn c-btn--small" role="button">SIGN UP</li> -->
 				<!-- <li id='contactdrop' class="js-header-contact js-popup c-btn c-btn--small" role="button">CONTACT US</li> -->
 
 				</ul>

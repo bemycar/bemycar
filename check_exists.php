@@ -5,6 +5,8 @@ if(!empty($_GET['carword'])){
 
 $carword = $_GET['carword'];
 
+s
+
 $con = mysqli_connect("localhost", "bemycar", "bemycar1", "bemycar");
 
 $result = mysqli_query($con, "SELECT * FROM `vehicles` JOIN `users`

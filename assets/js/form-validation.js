@@ -75,12 +75,8 @@ $('#login').on("click", function() {
   }
 });
 
+$('#search_button').on("click", function() {
 
-$(function() {
-  $('#search_form').removeAttr('onsubmit')
-    .submit(function(event) {
-      event.preventDefault();
-      // This cancels the event...
       var carword = $('#carword').val();
         $.ajax({
           url: 'check_exists.php?carword=' + carword,
@@ -100,5 +96,26 @@ $(function() {
         });
 
     });
+
+
+
+$('#sendmail').on("click", function() {
+
+    var email = $('#from_email').val();
+    var message =  $('#from_message').val();
+    var recipient_email =  $('#recipient_email').val();
+    var post_body = 'email='+email+'&message='+message+'&recipient_email='+recipient_email;
+    console.log(post_body);
+
+      $.ajax({
+        url: 'http://bemycar.co.uk/mail_user.php',
+        type: 'POST',
+        data: post_body,
+        success: function(data) {
+
+          console.log(data);
+          
+        }
+      });
 
 });

@@ -1,8 +1,6 @@
 var mycar = mycar || {};
 
 mycar = {
-  counter : 0,
-
   init: function() {
 
   },
@@ -13,25 +11,12 @@ mycar = {
     $('.c-image-gallery__single img').each(function(i){
       var width   = $(this).width();
       var height  = $(this).height();
-      var loaded = true;
 
-      // If not loaded fully then wait 100ms and try again.
       if(height === 0) {
-        loaded = false;
-        mycar.counter ++;
-
-        if(mycar.counter < 10) {
-
-          setTimeout(function(){
-            console.log('counter', mycar.counter);
-            console.log('timeout firing, height = ', height);
-            mycar.setImageFormat();
-          },100);
-        }
-      }
-
-      if(loaded === false ) {
-        return false;
+        setTimeout(function(){
+          mycar.setImageFormat();
+          return;
+        },100);
       }
       // Landscape
       if(width >= height){
@@ -49,9 +34,7 @@ mycar = {
       console.log(i + ' ' + height);
       console.log(i + ' ' + width);
     });
-    if(maxLandscapeHeight > 0) {
-      $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
-    }
+    $('.gallery-portrait').css('max-height', maxLandscapeHeight + 'px');
   }
 };
 
@@ -111,44 +94,51 @@ $('.js-popup-close').on('click', function() {
 
 var sliderCount = $('.c-image-gallery-for > div').length;
 
+// Slick init
+
+
 $(document).ready(function(){
-  // Slick init
-  $('.c-image-gallery').slick({
-   slidesToShow: 1,
-   slidesToScroll: 1,
-   arrows: false,
-   fade: true,
-   asNavFor: '.c-image-gallery-nav'
-  });
 
-
-  $('.c-image-gallery-nav').slick({
-   slidesToShow: 4,
-   slidesToScroll: 1,
-   asNavFor: '.c-image-gallery',
-   dots: false,
-   focusOnSelect: true,
-   arrows: false,
-   responsive: [
-              {
-                breakpoint: 600,
-                settings: {
-                  slidesToShow: 2,
-                }
-              }
-            ]
-  });
+$('.c-image-gallery').slick({
+ slidesToShow: 1,
+ slidesToScroll: 1,
+ arrows: false,
+ fade: true,
+ asNavFor: '.c-image-gallery-nav'
 });
 
 
-$(document).ready(function(){
+$('.c-image-gallery-nav').slick({
+ slidesToShow: 4,
+ slidesToScroll: 1,
+ asNavFor: '.c-image-gallery',
+ dots: false,
+ focusOnSelect: true,
+ arrows: false,
+ responsive: [
+            {
+              breakpoint: 600,
+              settings: {
+                slidesToShow: 2,
+              }
+            }
+          ]
+});
+  
   if( $('.c-image-gallery').hasClass('slick-initialized') ) {
     mycar.setImageFormat();
     console.log('has initialized');
   }else {
-    console.log('else firing as slider has not initialized');
+    console.log('else firing');
     setTimeout(function(){
       mycar.setImageFormat();
     },100);
   }
+
+  $(document).keypress(
+    function(event){
+     if (event.which == '13') {
+        event.preventDefault();
+      }
+});
 });
