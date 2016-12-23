@@ -113,8 +113,9 @@ $('#sendmail').on("click", function() {
         data: post_body,
         success: function(data) {
 
-          console.log(data);
-          
+          console.log(data + 'need to close ');
+           mycar.menuPopUp.closePopup();
+
         }
       });
 
