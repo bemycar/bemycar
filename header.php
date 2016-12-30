@@ -49,7 +49,7 @@ if (!empty($_SESSION['email'])) {
 
 	<!-- If logged in -->
 	<?php if(!empty($email)){?>
-			<!--	<li class="js-header-logout c-header__logout" id='logout'><a class="c-btn c-btn--small" href='logout.php'>LOG OUT</a></li> -->
+			<!--	<li class="js-header-logout c-header__logout" id='logout'><a class="c-btn c-btn--small" href='api/user/logout.php'>LOG OUT</a></li> -->
 				<!--<li class="js-header-my-account" id='account'><a class="c-btn c-btn--small" href='my_account.php'>MY ACCOUNT</a></li> -->
 				<!-- <li id='contactdrop'><a href='#'>CONTACT US</a></li> -->
 

@@ -26,7 +26,7 @@ $('#signup_button').on("click", function() {
     console.log(data);
 
     $.ajax({
-      url: 'signup.php',
+      url: 'api/user/signup.php',
       data: data,
       type: 'POST',
       success: function(data) {
@@ -58,7 +58,7 @@ $('#login').on("click", function() {
     console.log(data);
 
     $.ajax({
-      url: 'login.php',
+      url: 'api/user/login.php',
       data: data,
       type: 'POST',
       success: function(data) {
@@ -79,7 +79,7 @@ $('#search_button').on("click", function() {
 
       var carword = $('#carword').val();
         $.ajax({
-          url: 'check_exists.php?carword=' + carword,
+          url: 'api/vehicle/get_count/?carword=' + carword,
 
           success: function(data) {
 
@@ -108,7 +108,7 @@ $('#sendmail').on("click", function() {
     console.log(post_body);
 
       $.ajax({
-        url: 'http://bemycar.co.uk/mail_user.php',
+        url: 'api/user/mail_user.php',
         type: 'POST',
         data: post_body,
         success: function(data) {

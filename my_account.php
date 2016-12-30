@@ -33,7 +33,7 @@ if(mysqli_num_rows($result)> 0) {
 
 
 		$.ajax({
-		    url: 'delete_vehicle.php',
+		    url: 'api/vehicle/delete/',
 		    data: "vehicle_id="+rowId,
 		    type: 'POST',
 
