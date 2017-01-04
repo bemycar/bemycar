@@ -1,15 +1,4 @@
 <?php
-if (isset($_SERVER['HTTP_ORIGIN'])) {
-    $address = 'http://' . $_SERVER['SERVER_NAME'];
-    if (strpos($_SERVER['HTTP_ORIGIN'], $address) !== 0) {
-
-        exit(json_encode([
-            'error' => 'Invalid Origin header: ' . $_SERVER['HTTP_ORIGIN']
-        ]));
-    }
-} else {
-    exit(json_encode(['error' => 'No Origin header']));
-}
 
 include("mpdf60/". "mpdf.php");
 
@@ -35,8 +24,8 @@ $carword = strtoupper($carword);
     ';
 
 $html .= "<div style = 'text-align:center; margin-top:;' > 
- <img style = ' margin-top:120px; margin-left:200px;' src='img/bemycartext.png'></img> 
-<h1 style ='margin-top:230px; line-height: 10px; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
+ <img style = ' margin-top:120px; margin-left:200px;' width=100% src='img/bemycartext2.png'></img>
+<h1 style ='margin-top:180px; line-height: 10px; font-size:140vw;  text-align:center';> ".$carword."</h1></div> ";
 
 
 
